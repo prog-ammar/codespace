@@ -62,4 +62,12 @@ int main()
 // ptr+=2;
 // cout<<*ptr<<endl;
 
+
+// int *ptr=new int;
+// cout<<"Enter an value : ";
+// cin>>*ptr;
+// cout<<*ptr<<"\n";
+
+
+
 }
