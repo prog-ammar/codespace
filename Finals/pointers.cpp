@@ -52,4 +52,14 @@ int main()
 // cout<<*ptr<<"\n"; 
 // cout<<ptr<<"\n";
 
+// string arr[]={"ammar","ayesha"};
+// string* ptr= arr;
+// cout<<*ptr+" saleem"<<"\n";
+// cout<<*(ptr+1)<<"\n";
+
+// int arr[]={7,8,9};
+// int* ptr=arr;
+// ptr+=2;
+// cout<<*ptr<<endl;
+
 }
