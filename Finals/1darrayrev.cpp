@@ -13,6 +13,16 @@ void rev(int* p, int n)
     }
 }
 
+void printarray(int*p ,int n)
+{
+    cout<<"Reversed Array : ";
+    for(int i=0;i<n;i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+    cout<<"\n";
+}
+
 int main()
 {
     int n;
@@ -24,9 +34,5 @@ int main()
         cin>>arr[i];
     }
     rev(arr,n);
-    cout<<"Reversed Array : ";
-    for(int i=0;i<n;i++)
-    {
-        cout<<arr[i];
-    }
+    printarray(arr,n);
 }
