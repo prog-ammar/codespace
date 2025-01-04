@@ -19,7 +19,7 @@ int main()
     {
         if(target==arr[i])
         {
-            for(int j=i;j<n;j++)
+            for(int j=i;j<n-1;j++)
             {
                 arr[j]=arr[j+1];
             }
@@ -30,4 +30,5 @@ int main()
     {
         cout<<arr[i]<<" ";
     }
+    cout<<endl;
 }
