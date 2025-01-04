@@ -14,7 +14,7 @@ for(int i=0;i<s;i++)
     cin>>*(ptr+i);//you can also do ptr[i]
 }
 cout<<"In reverse order : ";
-for(int i=s;i>=0;i--)
+for(int i=s-1;i>=0;i--)
 {
     cout<<*(ptr+i)<<" ";//you can also do ptr[i]
 }
