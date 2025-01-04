@@ -38,10 +38,18 @@ int main()
 //     cout << *(ptr + 3) << endl;    // Statement 2
 //     cout << *(ptr + 1) - 5 << endl; // Statement 3
 
-int x=9;
-int* ptr1 =&x;
-int** ptr2 =&ptr1;
-int*** ptr3 =&ptr2;
-cout<<&x<<" "<<*ptr1<<" "<<**ptr2<<" "<<***ptr3;
+// int x=9;
+// int* ptr1 =&x;
+// int** ptr2 =&ptr1;
+// int*** ptr3 =&ptr2;
+// cout<<&x<<" "<<*ptr1<<" "<<**ptr2<<" "<<***ptr3;
+
+
+// char arr[]="Hi kesy ho";
+// char* ptr=arr;
+// cout<<ptr<<"\n";
+// ptr+=3;
+// cout<<*ptr<<"\n"; 
+// cout<<ptr<<"\n";
 
 }
