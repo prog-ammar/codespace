@@ -2,7 +2,10 @@
 #include<algorithm>
 
 using namespace std;
+
 void print(int* p,int &size);
+void append(int* p,int &size,int e);
+void deleted(int* p,int &size,int e);
 
 void append(int* p,int &size,int e)
 {
@@ -39,13 +42,6 @@ void deleted(int* p,int &size,int e)
     cout<<"Please enter an valid Index\n";
    }
 }
-
-
-
-
-
-
-
 
 int main()
 {
