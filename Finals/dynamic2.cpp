@@ -25,12 +25,15 @@ void print(int* p,int &size)
 
 void deleted(int* p,int &size,int e)
 {
+   if(e>=0 && e<size)
+   {
     size--;
    for(int i=e;i<size;i++)
    {
      p[i]=p[i+1];
    }
    print(p,size);
+   }
 }
 
 
