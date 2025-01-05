@@ -34,6 +34,10 @@ void deleted(int* p,int &size,int e)
    }
    print(p,size);
    }
+   else
+   {
+    cout<<"Please enter an valid Index\n";
+   }
 }
 
 
