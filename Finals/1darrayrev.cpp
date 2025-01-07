@@ -18,7 +18,7 @@ void printarray(int*p ,int n)
     cout<<"Reversed Array : ";
     for(int i=0;i<n;i++)
     {
-        cout<<arr[i]<<" ";
+        cout<<p[i]<<" ";
     }
     cout<<"\n";
 }
