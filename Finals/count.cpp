@@ -6,19 +6,14 @@ using namespace std;
 void count(int* p,int n)
 {
      int wdp [n];
-     int rep=0;
      int ind=0;
      for(int i=0;i<n;i++)
      {
-        wdp[i]=p[i];
-     }
-     for(int i=0;i<n;i++)
-     {
         bool dup=false;
-        int x=wdp[i];
+        int x=p[i];
         for(int j=i+1;j<n;j++)
         {
-            if(x==wdp[j])
+            if(x==p[j])
             {
                 dup=true;
                 break;
