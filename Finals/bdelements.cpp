@@ -12,7 +12,7 @@ int sumofbd(int p[][col],int r,int c)
     {
         for(int j=0;j<c;j++)
         {
-            if(i==0 || i==c-1)
+            if(i==0 || i==r-1)
             {
               sum+=p[i][j];
             }
