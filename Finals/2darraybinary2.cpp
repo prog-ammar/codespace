@@ -30,6 +30,10 @@ void binary2d(int p[][col],int r,int c,int target)
         high=mid-1;
       }
     }
+    if(!found)
+    {
+        cout<<"Element not found "<<endl;
+    }
     
 }
 
