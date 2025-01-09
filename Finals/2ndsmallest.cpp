@@ -10,6 +10,7 @@ int smallest2nd(int arr[],int n)
     {
        if(small>arr[i])
        {
+         small2nd=small;
          small=arr[i];
        }
        if(small!=arr[i])
