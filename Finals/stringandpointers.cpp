@@ -43,7 +43,7 @@ int length1(string s)
     return count;
 }
 
-// very very dumb way search only owrs without spaces
+// very very dumb way search only words without spaces
 // void search(string s)
 // {
 //     string str;
