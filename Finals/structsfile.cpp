@@ -62,14 +62,10 @@ void load(Employee p[])
 {
   ifstream file;
   file.open("employees.txt");
-  for(int i=0;;i++)
+  for(int i=0;!file.eof();i++)
   {
     file>>p[i].id>>p[i].name>>p[i].salary;
-    if(file.eof())
-    {
-      lines=i;
-      break;
-    }
+    lines++;
   }  
   file.close();
 }
