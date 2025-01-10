@@ -117,7 +117,7 @@ void rmduplicates(string &s)
         {
             if(temp==s[j])
             {
-                s.replace(i,1,1,' ');
+                s.replace(i,1,1,'\0');
             }
         }
     }
@@ -139,16 +139,107 @@ void findandreplace(string s,string str,string str1)
      
 }
 
+void rmspaces(string s)
+{
+    for(int i=0;i<s.length();i++)
+    {
+        if(s[i]==' ')
+        {
+            s[i]='\0';
+        }
+    }
+    cout<<s;
+}
+
+bool anagramcheck(string s)
+{
+    string s1;
+    cout<<"Enter String : ";
+    getline(cin,s1);
+    if(s1.length()==s.length())
+    { 
+        bool found=false;
+        for(int i=0;i<s.length();i++)
+        {
+          for(int j=0;j<s1.length();j++)
+          {
+            if(s[i]==s[j])
+            {
+                found=true;
+            }
+          }
+          if(found==false)
+          {
+            return false;
+          }
+        }
+    }
+    return true;
+}
+
+// wrong
+// void nonrepeating(string s)
+// {
+//     string str[100];
+//     int l=0;
+//     int o=0;
+//     for(int i=0;i<s.length();i++)
+//     {
+//       bool dup=true;
+//       str[l][o]=s[i];
+//       for(int j=i;j>0;j--)
+//       {
+//         if(s[j]==s[i+1])
+//         {
+//             l++;
+//             o=0;
+//             dup=true;
+//             break;
+//         }
+//       }
+//       if(dup)
+//       {
+//         str[l][o]=s[i+1];
+//         o++;
+//       }
+//     }
+//     int largest=str[0].length();
+//     int index=0;
+//     for(int i=1;i<l;i++)
+//     {
+//       if(largest<str[i].length())
+//       {
+//         largest=str[i].length();
+//         index=i;
+//       }
+//     }
+//     cout<<str[index]<<"\n";
+// }
+
 int main()
 {
     string s;
     cout<<"Enter String : ";
     getline(cin,s);
-    string str;
-    cout<<"To Find : ";
-    getline(cin,str);
-    string str1;
-    cout<<"To Replace : ";
-    getline(cin,str1);
-    findandreplace(s,str,str1);
+
+    // string str;
+    // cout<<"To Find : ";
+    // getline(cin,str);
+    // string str1;
+    // cout<<"To Replace : ";
+    // getline(cin,str1);
+    // findandreplace(s,str,str1);
+
+    // bool l=anagramcheck(s);
+    // if(l)
+    // {
+    //     cout<<"it is an Anagram "<<endl;
+    // }
+    // else
+    // {
+    //     cout<<"it is not an Anagram "<<endl;
+    // }
+    rmduplicates(s);
+    cout<<s;
+    
 }
