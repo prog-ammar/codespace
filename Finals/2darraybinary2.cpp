@@ -7,27 +7,28 @@ const int col=100;
 void binary2d(int p[][col],int r,int c,int target)
 {
     int low=0;
-    int high=r*c-1;
+    int high=(r*c)-1;
     int mid;
     bool found=false;
     while(low<=high)
     {
       mid=(low+high)/2;
-      int midele=p[mid/r][mid/c];
+      int midele=p[mid/r][mid%c];
       
       if(midele==target)
       {
-        cout<<target<<" found at "<<mid/r<<" "<<mid/r;
+        cout<<target<<" found at "<<mid/r<<" "<<mid%c;
         found=true;
         break;
       }
       else if(midele>target)
       {
-        low=mid+1;
+        high=mid-1;
       }
       else if(midele<target)
       {
-        high=mid-1;
+        low=mid+1;
+        
       }
     }
     if(!found)
