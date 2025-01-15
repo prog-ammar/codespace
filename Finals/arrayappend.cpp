@@ -147,6 +147,34 @@ void printarr(int* p,int n)
     cout<<endl;
 }
 
+void leftshift(int* p,int n,int k)
+{
+    k=k%n;
+    for(int i=0;i<k;i++)
+    {
+        int temp=p[0];
+        for(int j=0;j<n;j++)
+        {
+            p[j]=p[j+1];
+        }
+        p[n-1]=temp;
+    }
+}
+
+void rightshift(int* p,int n,int k)
+{
+    k=k%n;
+    for(int i=0;i<k;i++)
+    {
+        int temp=p[n-1];
+        for(int j=n-1;j>0;j--)
+        {
+           p[j]=p[j-1];
+        }
+        p[0]=temp;
+    }
+}
+
 int main()
 {
     int n;
@@ -162,7 +190,7 @@ int main()
     do
     {
       int choice;
-      cout<<"\n\n1.Append An Array\n2.Delete an Element\n3.Delete using Index\n4.Delete if exists multiple of given\n5.Delete all duplicates\n6.No of Counts of All Nums\n7.Eixt\nEnter Choice : ";
+      cout<<"\n\n1.Append An Array\n2.Delete an Element\n3.Delete using Index\n4.Delete if exists multiple of given\n5.Delete all duplicates\n6.No of Counts of All Nums\n8.Left Shift\n9.Right Shift\n9.Eixt\nEnter Choice : ";
       cin>>choice;
       switch (choice)
       {
@@ -199,6 +227,19 @@ int main()
         noofcounts(p,n);
         break;
     case 7:
+        int k;
+        cout<<"Enter key: ";
+        cin>>k;
+        leftshift(p,n,k);
+        printarr(p,n);
+        break;
+    case 8:
+        int v;
+        cout<<"Enter Key : ";
+        cin>>v;
+        rightshift(p,n,k);
+        printarr(arr,n);
+    case 9:
         break;
       default:
         cout<<"Wrong Choice\n";
