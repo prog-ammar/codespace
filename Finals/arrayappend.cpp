@@ -332,7 +332,7 @@ int main()
     int r;
     do
     {
-      cout<<"\n\n1.Append An Array\n2.Delete an Element\n3.Delete using Index\n4.Delete if exists multiple of given\n5.Delete all duplicates\n6.No of Counts of All Nums\n7.Left Shift\n8.Right Shift\n9.Insert an array\n10.Selection Sort\n11.Insertion Sort\n12.Bubble Sort\n13.Linear Search\n14.Binary Search\nEnter Choice : ";
+      cout<<"\n\n1.Append An Array\n2.Delete an Element\n3.Delete using Index\n4.Delete if exists multiple of given\n5.Delete all duplicates\n6.No of Counts of All Nums\n7.Left Shift\n8.Right Shift\n9.Insert an array\n10.Selection Sort\n11.Insertion Sort\n12.Bubble Sort\n13.Linear Search\n14.Binary Search\n15.Exit\nEnter Choice : ";
       cin>>choice;
       switch (choice)
       {
@@ -409,7 +409,7 @@ int main()
     case 14:
         cout<<"Enter Target : ";
         cin>>t;
-        r=linearsearch(p,n,t);
+        r=binarysearch(p,n,t);
         if(r==-1)
         {
             cout<<t<<" Not Found\n";
@@ -419,9 +419,11 @@ int main()
             cout<<t<<" Found at "<<r<<endl;
         }
         break;
+    case 15:
+        break;
       default:
         cout<<"Wrong Choice\n";
       }
-    } while (choice!=10);
+    } while (choice!=15);
     
 }
