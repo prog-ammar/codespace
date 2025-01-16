@@ -49,6 +49,27 @@ int deletenum(int* arr,int n,int t)
     }
 }
 
+int* min_max(int* arr,int n)
+{
+    int min=arr[0];
+    int max=arr[0];
+    for(int i=1;i<n;i++)
+    {
+      if(arr[i]>max)
+      {
+        max=arr[i];
+      }
+      if(arr[i]<min)
+      {
+        min=arr[i];
+      }
+    }
+    int *y=new int[2];
+    y[0]=min;
+    y[1]=max;
+    return y;
+}
+
 int delindex(int* arr,int n,int index)
 {
     if(index>=0 && index<n)
@@ -108,6 +129,27 @@ void noofcounts(int* arr,int n)
         cout<<arr[i]<<" Occurs this "<<count<<" times"<<endl;
     }
 }
+}
+
+void reversearr1ptr(int* arr,int n)
+{
+  int* ptr=arr;
+  for(int i=0;i<n/2;i++)
+  {
+     swap(*(ptr+i),*(ptr+n-i-1));
+  }
+}
+
+void reverse2ptr(int* arr,int n)
+{
+    int* ptr1=&arr[0];
+    int* ptr2=&arr[n-1]; 
+    for(int i=0;i<n/2;i++)
+    {
+        swap(*ptr1,*ptr2);
+        ptr1++;
+        ptr2--;
+    }
 }
 
 int deldup(int* arr,int n)
@@ -240,7 +282,7 @@ int binarysearch(int* arr,int n,int target)
     int left=0;
     int right=n-1;
     int mid;
-    while(left<=right)
+    if(left<=right)
     {
         mid=(left+right)/2;
         if(arr[mid]==target)
@@ -257,6 +299,44 @@ int binarysearch(int* arr,int n,int target)
         }
     }
     return -1;
+}
+
+int unique(int* arr,int n)
+{
+  int* newarr=new int [n];
+  int l=0;
+  for(int i=0;i<n;i++)
+  {
+    bool found=false;
+    for(int j=i+1;j<n;j++)
+    {
+       if(arr[i]==arr[j])
+       {
+        found=true;
+       }
+    }
+    if(!found)
+    {
+        newarr[l]=arr[i];
+        l++;
+    }
+  }
+  p=newarr;
+  return l;
+}
+
+void pairsum(int* arr,int n,int t)
+{
+    for(int i=0;i<n;i++)
+    {
+        for(int j=i+1;j<n;j++)
+        {
+            if(arr[i]+arr[j]==t)
+            {
+                cout << "(" << arr[i] << ", " << arr[j] << ")" << endl;
+            }
+        }
+    }
 }
 
 int insertatindex(int* arr,int n)
@@ -330,9 +410,10 @@ int main()
     int choice;
     int t;
     int r;
+    int* k;
     do
     {
-      cout<<"\n\n1.Append An Array\n2.Delete an Element\n3.Delete using Index\n4.Delete if exists multiple of given\n5.Delete all duplicates\n6.No of Counts of All Nums\n7.Left Shift\n8.Right Shift\n9.Insert an array\n10.Selection Sort\n11.Insertion Sort\n12.Bubble Sort\n13.Linear Search\n14.Binary Search\n15.Exit\nEnter Choice : ";
+      cout<<"\n\n1.Append An Array\n2.Delete an Element\n3.Delete using Index\n4.Delete if exists multiple of given\n5.Delete all duplicates\n6.No of Counts of All Nums\n7.Left Shift\n8.Right Shift\n9.Insert an array\n10.Selection Sort\n11.Insertion Sort\n12.Bubble Sort\n13.Linear Search\n14.Binary Search\n15.Max and Min\n16.Reversing 1 pointer\n17.Reversing 2 pointer \n18.Unique Elements\n19.Find Sum Pair\n20.Exit\nEnter Choice : ";
       cin>>choice;
       switch (choice)
       {
@@ -420,10 +501,31 @@ int main()
         }
         break;
     case 15:
+        k=min_max(p,n);
+        cout<<"Min value : "<<k[0];
+        cout<<"\nMax value : "<<k[1];
+        break;
+    case 16:
+        reversearr1ptr(p,n);
+        printarr(p,n);
+        break;
+    case 17:
+        reverse2ptr(p,n);
+        printarr(p,n);
+        break;
+    case 18:
+        n=unique(p,n);
+        printarr(p,n);
+        break;
+    case 19:
+        cout<<"Enter number : ";
+        cin>>t;
+        pairsum(p,n,t);
+    case 20:
         break;
       default:
         cout<<"Wrong Choice\n";
       }
-    } while (choice!=15);
+    } while (choice!=20);
     
 }
