@@ -175,6 +175,90 @@ void rightshift(int* p,int n,int k)
     }
 }
 
+void bubblesort(int* arr,int n)
+{
+    for(int i=0;i<n-1;i++)
+    {
+        for(int j=0;j<n-i-1;j++)
+        {
+            if(arr[j+1]<arr[j])
+            {
+                swap(arr[j],arr[j+1]);
+            }
+        }
+    }
+}
+
+void selectionsort(int* arr,int n)
+{
+    int min_index;
+    for(int i=0;i<n;i++)
+    {
+        min_index=i;
+        for(int j=i+1;j<n;j++)
+        {
+            if(arr[min_index]>arr[j])
+            {
+                min_index=j;
+            }
+        }
+        if(min_index!=i)
+        {
+            swap(arr[min_index],arr[i]);
+        }
+    }
+}
+
+void insertionsort(int* arr,int n)
+{
+    for(int i=1;i<n;i++)
+    {
+       for(int j=i;j>0;j--)
+       {
+         if(arr[j-1]>arr[j])
+         {
+            swap(arr[j-1],arr[j]);
+         }
+       }
+    }
+}
+
+int linearsearch(int* arr,int n,int target)
+{
+    for(int i=0;i<n;i++)
+    {
+        if(arr[i]==target)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
+int binarysearch(int* arr,int n,int target)
+{
+    int left=0;
+    int right=n-1;
+    int mid;
+    while(left<=right)
+    {
+        mid=(left+right)/2;
+        if(arr[mid]==target)
+        {
+            return mid;
+        }
+        else if(arr[mid]<target)
+        {
+            left=mid+1;
+        }
+        else if(arr[mid]>target)
+        {
+            right=mid-1;
+        }
+    }
+    return -1;
+}
+
 int insertatindex(int* arr,int n)
 {
    int k,index;
