@@ -175,6 +175,62 @@ void rightshift(int* p,int n,int k)
     }
 }
 
+int insertatindex(int* arr,int n)
+{
+   int k,index;
+   cout<<"Enter no of Elements : ";
+   cin>>k;
+   cout<<"Enter Index : ";
+   cin>>index;
+   int* temparr=new int[k];
+   for(int i=0;i<k;i++)
+   {
+      cin>>temparr[i];
+   }
+   int* newarr=new int[n+k];
+   int i=0;
+   int l=0;
+   bool inserted=false;
+
+   //Works Fine
+   for(int i=0;i<n;i++)
+   {
+     if(i==index && inserted==false)
+     {
+        for(int j=0;j<k;j++)
+        {
+            newarr[l]=temparr[j];
+            l++;
+        }
+        inserted=true;
+        i--;
+     }
+     else
+     {
+        newarr[l]=arr[i];
+        l++;
+     }
+   }
+//    Works Fine 
+//    for(i=0;i<index;i++)
+//    {
+//         newarr[l]=arr[i];
+//         l++;
+//    }
+//    for(i=0;i<k;i++)
+//    {
+//        newarr[l]=temparr[i];
+//        l++;
+//    }
+//    for(i=index;i<n;i++)
+//    {
+//       newarr[l]=arr[i];
+//       l++;
+//    }
+    p=newarr;
+    return n+k;
+}
+
 int main()
 {
     int n;
@@ -187,10 +243,10 @@ int main()
     {
       cin>>p[i];
     }
+    int choice;
     do
     {
-      int choice;
-      cout<<"\n\n1.Append An Array\n2.Delete an Element\n3.Delete using Index\n4.Delete if exists multiple of given\n5.Delete all duplicates\n6.No of Counts of All Nums\n8.Left Shift\n9.Right Shift\n9.Eixt\nEnter Choice : ";
+      cout<<"\n\n1.Append An Array\n2.Delete an Element\n3.Delete using Index\n4.Delete if exists multiple of given\n5.Delete all duplicates\n6.No of Counts of All Nums\n7.Left Shift\n8.Right Shift\n9.Insert an array\n10.Eixt\nEnter Choice : ";
       cin>>choice;
       switch (choice)
       {
@@ -237,13 +293,18 @@ int main()
         int v;
         cout<<"Enter Key : ";
         cin>>v;
-        rightshift(p,n,k);
-        printarr(arr,n);
+        rightshift(p,n,v);
+        printarr(p,n);
+        break;
     case 9:
+        n=insertatindex(p,n);
+        printarr(p,n);
+        break;
+    case 10:
         break;
       default:
         cout<<"Wrong Choice\n";
       }
-    } while (1);
+    } while (choice!=10);
     
 }
