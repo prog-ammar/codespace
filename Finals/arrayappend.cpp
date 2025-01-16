@@ -328,9 +328,11 @@ int main()
       cin>>p[i];
     }
     int choice;
+    int t;
+    int r;
     do
     {
-      cout<<"\n\n1.Append An Array\n2.Delete an Element\n3.Delete using Index\n4.Delete if exists multiple of given\n5.Delete all duplicates\n6.No of Counts of All Nums\n7.Left Shift\n8.Right Shift\n9.Insert an array\n10.Eixt\nEnter Choice : ";
+      cout<<"\n\n1.Append An Array\n2.Delete an Element\n3.Delete using Index\n4.Delete if exists multiple of given\n5.Delete all duplicates\n6.No of Counts of All Nums\n7.Left Shift\n8.Right Shift\n9.Insert an array\n10.Selection Sort\n11.Insertion Sort\n12.Bubble Sort\n13.Linear Search\n14.Binary Search\nEnter Choice : ";
       cin>>choice;
       switch (choice)
       {
@@ -339,24 +341,21 @@ int main()
         printarr(p,n);
         break;
       case 2:
-        int t;
         cout<<"Enter Element You Want to Delete : ";
         cin>>t;
         n=deletenum(p,n,t);
         printarr(p,n);
         break;
       case 3:
-        int i;
         cout<<"Enter index : ";
-        cin>>i;
-        n=delindex(p,n,i);
+        cin>>t;
+        n=delindex(p,n,t);
         printarr(p,n);
         break;
       case 4:
-        int j;
         cout<<"Enter Element : ";
-        cin>>j;
-        n=delmulti(p,n,j);
+        cin>>t;
+        n=delmulti(p,n,t);
         printarr(p,n);
         break;
     case 5:
@@ -367,17 +366,15 @@ int main()
         noofcounts(p,n);
         break;
     case 7:
-        int k;
         cout<<"Enter key: ";
-        cin>>k;
-        leftshift(p,n,k);
+        cin>>t;
+        leftshift(p,n,t);
         printarr(p,n);
         break;
     case 8:
-        int v;
         cout<<"Enter Key : ";
-        cin>>v;
-        rightshift(p,n,v);
+        cin>>t;
+        rightshift(p,n,t);
         printarr(p,n);
         break;
     case 9:
@@ -385,6 +382,42 @@ int main()
         printarr(p,n);
         break;
     case 10:
+        selectionsort(p,n);
+        printarr(p,n);
+        break;
+    case 11:
+        insertionsort(p,n);
+        printarr(p,n);
+        break;
+    case 12:
+        bubblesort(p,n);
+        printarr(p,n);
+        break;
+    case 13:
+        cout<<"Enter Target : ";
+        cin>>t;
+        r=linearsearch(p,n,t);
+        if(r==-1)
+        {
+            cout<<t<<" Not Found\n";
+        }
+        else
+        {
+            cout<<t<<" Found at "<<r<<endl;
+        }
+        break;
+    case 14:
+        cout<<"Enter Target : ";
+        cin>>t;
+        r=linearsearch(p,n,t);
+        if(r==-1)
+        {
+            cout<<t<<" Not Found\n";
+        }
+        else
+        {
+            cout<<t<<" Found at "<<r<<endl;
+        }
         break;
       default:
         cout<<"Wrong Choice\n";
