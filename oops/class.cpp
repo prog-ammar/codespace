@@ -14,19 +14,19 @@ class Car
     
     Car(): name(""), brand(""), manuYear(0) {} //Constructor Automatically Called When Object is Created
 
-    void set(string carName,string carBrand,int Year)//Member Functions 
+    void set(string carName,string carBrand,int Year)//Member Functions //Setter Function
     {
         manuYear=Year;
         name=carName;
         brand=carBrand;
     }
 
-    void get()
+    void get()//Getter Function
     {
         cout<<"Name of Car : "<<name<<"\nBrand of Car : "<<brand<<"\nYear of Manufacturing : "<<manuYear<<endl;
     }
 
-    ~Car()//Destructor Automatically called at end
+    ~Car()//Destructor Automatically called at end 
     {
         cout<<"Car has been Destroyed \n";
     }
