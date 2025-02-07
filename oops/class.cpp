@@ -6,13 +6,15 @@ class Car
 {
     private:
 
-    int manuYear;
+    int manuYear;//Member Varaiables
     string name;
     string brand;
 
     public:
     
-    void set(string carName,string carBrand,int Year)
+    Car(): name(""), brand(""), manuYear(0) {} //Constructor Automatically Called When Object is Created
+
+    void set(string carName,string carBrand,int Year)//Member Functions 
     {
         manuYear=Year;
         name=carName;
@@ -22,6 +24,11 @@ class Car
     void get()
     {
         cout<<"Name of Car : "<<name<<"\nBrand of Car : "<<brand<<"\nYear of Manufacturing : "<<manuYear<<endl;
+    }
+
+    ~Car()//Destructor Automatically called at end
+    {
+        cout<<"Car has been Destroyed \n";
     }
 };
 
