@@ -11,7 +11,9 @@ class Car
     string brand; //static variable is shared amoung all the objects in an class and any where its change it change for all objects
 
     public:
+
     static int totalCount;
+
     Car(): name(""), brand(""), manuYear(0){totalCount++;} //Constructor Automatically Called When Object is Created
 
     void printBrand();//if we want to write an function outside the class we have to declare it in Class
@@ -31,6 +33,17 @@ class Car
     void getNoofCars()
     {
         cout<<"Total Cars :"<<totalCount<<"\n";
+    }
+     
+    //operator overloading you can change the return type what you want and op according to you or 
+    //you can change the paramenters
+    bool operator > (const Car& sec)
+    {
+        if(brand>sec.brand)
+        {
+            return true;
+        }
+        return false;
     }
     friend void getName(const Car& a);//if we want to any any function that can access thr values of the class
     //then we have to delcare an freind function
@@ -79,7 +92,7 @@ void Car::printBrand()
 
 
 int main()
-{//asdas
+{
   Car a;
   a.set("City","Honda",2005);
   a.getNoofCars();
