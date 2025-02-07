@@ -21,14 +21,14 @@ class Car
         brand=carBrand;
     }
 
-    void get()//Getter Function
+    virtual void get()//Getter Function
     {
         cout<<"Name of Car : "<<name<<"\nBrand of Car : "<<brand<<"\nYear of Manufacturing : "<<manuYear<<endl;
     }
 
-    static int getNoofCars()
+    void getNoofCars()
     {
-        return totalCount;
+        cout<<"Total Cars :"<<totalCount<<"\n";
     }
 
     ~Car()//Destructor Automatically called at end 
@@ -38,13 +38,39 @@ class Car
     }
 };
 
-int Car::totalCount=0;
+int Car::totalCount=0;//you cant initialize the static variable inside class
+
+
+//You can Call the Member Fucntions of the Class without making the object
+//but it should be static member you cant call the non static one
+//so you can declared an function like static int foo() and then use it
+//like if class name is box then box::foo()
+
+class ElectricCar : public Car
+{
+   private:
+   int battery;
+   public:
+   void set(int level)
+   {
+      battery=level;
+   }
+   void get() override
+   {
+      cout<<"Battery Level : "<<battery<<endl;
+   }
+
+};
+
 
 int main()
 {
   Car a;
   a.set("City","Honda",2005);
-  cout<<"Total Cars : "<<Car::getNoofCars<<"\n";
+  a.getNoofCars();
   a.get();
+  ElectricCar b;
+  b.set(80);
+  b.get();
   return 0;
 }
