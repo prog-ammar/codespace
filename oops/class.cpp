@@ -14,6 +14,8 @@ class Car
     static int totalCount;
     Car(): name(""), brand(""), manuYear(0){totalCount++;} //Constructor Automatically Called When Object is Created
 
+    void printBrand();//if we want to write an function outside the class we have to declare it in Class
+
     void set(string carName,string carBrand,int Year)//Member Functions //Setter Function
     {
         manuYear=Year;
@@ -30,13 +32,21 @@ class Car
     {
         cout<<"Total Cars :"<<totalCount<<"\n";
     }
+    friend void getName(const Car& a);//if we want to any any function that can access thr values of the class
+    //then we have to delcare an freind function
 
     ~Car()//Destructor Automatically called at end 
     {
         cout<<"Car has been Destroyed \n";
         totalCount--;
     }
+    
 };
+
+void getName(const Car& a)
+{
+    cout<<"Name of Car : "<<a.name;
+}
 
 int Car::totalCount=0;//you cant initialize the static variable inside class
 
@@ -61,6 +71,11 @@ class ElectricCar : public Car
    }
 
 };
+
+void Car::printBrand()
+{
+  cout<<"Name of Brand is : "<<brand;
+}
 
 
 int main()
