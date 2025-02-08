@@ -19,7 +19,7 @@ class MyArray
 
   public:
 
-  MyArray(): size(0),ptr=nullptr{}
+//   MyArray(): size(0),ptr=nullptr{}
 
   MyArray(Y arr[],int s)
   {
@@ -37,6 +37,7 @@ class MyArray
     {
         cout<<ptr[i]<<" ";
     }
+    cout<<endl;
   }
 
   void insert(Y element)
@@ -52,11 +53,37 @@ class MyArray
     {
         ptr[i]=temp[i];
     }
-    ptr[size]=element;
-  } 
+    ptr[size-1]=element;
+  }
+
+  void deleteAtIndex(int index)
+  {
+    bool finded=false;
+    for(int i=0;i<size;i++)
+    {
+        if(ptr[index]==ptr[i])
+        {
+            finded=true;
+            for(int j=i;j<size;j++)
+            {
+                ptr[j]=ptr[j+1];
+            }
+        }
+    }
+    if(finded)
+    {
+        size--;
+    }
+  }  
 };
 
 int main()
 {
-  cout<<Max<int>(56,78)<<endl;
+  int arr[5]={1,2,3,4,5};
+  MyArray<int> a(arr,5);
+  a.print();
+  a.insert(6);
+  a.print();
+  a.deleteAtIndex(3);
+  a.print();
 }
