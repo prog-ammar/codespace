@@ -37,6 +37,7 @@ class myVector
         ptr[size-1]=element;
       }
     }  
+
       void print ()
       {
         for(int i=0;i<size;i++)
@@ -44,6 +45,50 @@ class myVector
             cout<<ptr[i]<<" ";
         }
         cout<<endl;
+      }
+      
+      int findElement(int element)
+      {
+        for(int i=0;i<size;i++)
+        {
+          if(ptr[i]==element)
+          {
+            return i;
+          }
+        }
+        return -1;
+      }
+      
+      void deleteElement(int element)
+      {
+        bool found=false;
+        for(int i=0;i<size;i++)
+        {
+          if(ptr[i]==element)
+          {
+            found=true;
+            for(int j=i;j<size-1;j++)
+            {
+              ptr[j]=ptr[j+1];
+            }
+          }
+        }
+        if(found)
+        {
+          size--;
+        }
+      }
+
+      void deleteAtIndex(int index)
+      {
+        if(index>=0 && index<size)
+        {
+          for(int i=index;i<size-1;i++)
+          {
+            ptr[i]=ptr[i+1];
+          }
+          size--;
+        }
       }
 
       ~myVector()
@@ -56,8 +101,18 @@ class myVector
 int main()
 {
   myVector<int> a;
-  a.insert(1);
-  a.insert(2);
-  a.insert(3);
+  a.insert(34);
+  a.insert(43);
+  a.insert(56);
+  int index=a.findElement(43);
+  if(index!=-1)
+  {
+    cout<<"Element Found at index : "<<index<<endl;
+  }
+  else
+  {
+    cout<<"Element Not Found "<<endl;
+  }
+  a.deleteElement(43);
   a.print();
 }
